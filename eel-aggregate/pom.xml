@@ -6,7 +6,108 @@
 
     <groupId>org.baade</groupId>
     <artifactId>eel-aggregate</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>../eel-core</module>
+        <module>../eel-login-server</module>
+    </modules>
+    <name>eel-aggregate</name>
+    <url>https://github.com/baade-org/eel</url>
+    <description>Java NIO Network Framework</description>
+    <inceptionYear>2016</inceptionYear>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>baade</id>
+            <name>baade</name>
+            <email>zz@baade.org</email>
+        </developer>
+    </developers>
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/baade-org/eel/issues</url>
+    </issueManagement>
 
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <junit.version>4.12</junit.version>
+
+        <slf4j-log4j12.version>1.7.13</slf4j-log4j12.version>
+        <protobuf-java.version>3.2.0</protobuf-java.version>
+
+
+        <jetty-server.version>9.4.2.v20170220</jetty-server.version>
+
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <scm>
+        <connection>scm:git:https://github.com/baade-org/eel.git</connection>
+        <developerConnection>scm:git:https://github.com/baade-org/eel.git</developerConnection>
+        <url>https://github.com/baade-org/eel</url>
+        <tag>master</tag>
+    </scm>
+
+    <build>
+        <finalName>eel-aggregate</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j-log4j12.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>${protobuf-java.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>${jetty-server.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 </project>
