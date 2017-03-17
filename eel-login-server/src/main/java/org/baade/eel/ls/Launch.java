@@ -11,14 +11,13 @@ import org.eclipse.jetty.server.Server;
  */
 public class Launch {
     public static void main(String[] args) {
-        Globals.init();
-
         LoginHTTPServer httpServer = new LoginHTTPServer();
         httpServer.setPort(Globals.getConfig().getLoginServer().getHttpPort());
 
         HTTPHandler httpHandler = new HTTPHandler();
         httpServer.setHandler(httpHandler);
 
+        httpServer.start();
 
     }
 }

@@ -9,6 +9,10 @@ import org.baade.eel.core.conf.Config;
  */
 public class Globals {
 
+    static {
+        init();
+    }
+
     /**
      * 全局的配置
      */
