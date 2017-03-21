@@ -21,6 +21,13 @@ public class HTTPHandler extends AbstractHandler implements IServerHandler {
 		System.out.println("baseRequest : " + baseRequest);
 		System.out.println("request : " + request);
 		System.out.println("response : " + response);
+
+//		response.getWriter().write("ss");
+
+		response.setContentType("text/json;charset=utf-8");
+		response.setStatus(HttpServletResponse.SC_OK);
+		baseRequest.setHandled(true);
+		response.getWriter().println("ssssssssssss");
 	}
 
 }

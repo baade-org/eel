@@ -24,4 +24,10 @@ public abstract class AbstractServer extends LifecycleAdaptor implements IServer
     public void start() {
         new Thread(this).start();
     }
+
+    @Override
+    public String toString() {
+        return this.getClass() + "[端口：" + this.port + ", 创建时间：" + this.getCreateTime() + "]";
+
+    }
 }
