@@ -34,7 +34,6 @@
         <url>https://github.com/baade-org/eel/issues</url>
     </issueManagement>
 
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -44,8 +43,8 @@
         <slf4j-log4j12.version>1.7.13</slf4j-log4j12.version>
         <protobuf-java.version>3.2.0</protobuf-java.version>
 
-
         <jetty-server.version>9.4.2.v20170220</jetty-server.version>
+        <netty-all.version>4.1.9.Final</netty-all.version>
 
     </properties>
 
@@ -101,6 +100,11 @@
             <version>${jetty-server.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>${netty-all.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>

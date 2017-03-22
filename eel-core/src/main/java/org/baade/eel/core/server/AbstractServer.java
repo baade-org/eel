@@ -1,6 +1,9 @@
 package org.baade.eel.core.server;
 
 import org.baade.eel.core.LifecycleAdaptor;
+import org.baade.eel.core.Log;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.handler.AbstractHandler;
 
 /**
  * Server的抽象类
@@ -10,6 +13,8 @@ import org.baade.eel.core.LifecycleAdaptor;
 public abstract class AbstractServer extends LifecycleAdaptor implements IServer, Runnable{
 
     protected int port;
+
+    protected IServerHandler serverHandler;
 
     public AbstractServer() {
         super();
@@ -26,8 +31,18 @@ public abstract class AbstractServer extends LifecycleAdaptor implements IServer
     }
 
     @Override
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    @Override
+    public void setHandler(IServerHandler handler) {
+        this.serverHandler = handler;
+    }
+
+
+    @Override
     public String toString() {
         return this.getClass() + "[端口：" + this.port + ", 创建时间：" + this.getCreateTime() + "]";
-
     }
 }

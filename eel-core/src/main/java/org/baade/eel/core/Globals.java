@@ -1,6 +1,9 @@
 package org.baade.eel.core;
 
 import org.baade.eel.core.conf.Config;
+import org.baade.eel.core.conf.GameSystemProperty;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 该类的所有方法都是全局静态的
@@ -8,6 +11,9 @@ import org.baade.eel.core.conf.Config;
  *         2017/3/16.
  */
 public class Globals {
+
+    public static final Logger LOG = LoggerFactory.getLogger(
+            System.getProperty(GameSystemProperty.LOG_NAME.getKey(), GameSystemProperty.LOG_NAME.getDefaultValue()));
 
     static {
         init();
