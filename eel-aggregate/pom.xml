@@ -11,6 +11,8 @@
     <modules>
         <module>../eel-core</module>
         <module>../eel-login-server</module>
+        <module>../eel-tools</module>
+        <module>../eel-basic</module>
     </modules>
     <name>eel-aggregate</name>
     <url>https://github.com/baade-org/eel</url>
@@ -43,7 +45,7 @@
         <slf4j-log4j12.version>1.7.13</slf4j-log4j12.version>
         <protobuf-java.version>3.2.0</protobuf-java.version>
 
-        <jetty-server.version>9.4.2.v20170220</jetty-server.version>
+        <jetty.version>9.4.2.v20170220</jetty.version>
         <netty-all.version>4.1.9.Final</netty-all.version>
 
     </properties>
@@ -97,7 +99,7 @@
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
-            <version>${jetty-server.version}</version>
+            <version>${jetty.version}</version>
         </dependency>
 
         <dependency>

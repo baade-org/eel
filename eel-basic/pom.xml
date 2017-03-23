@@ -10,17 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>eel-core</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>eel-basic</artifactId>
 
-    <build>
-        <resources>
-            <resource>
-                <directory>conf</directory>
-            </resource>
-        </resources>
-    </build>
-    <modules>
-        <module>../eel-tools</module>
-    </modules>
+
 </project>

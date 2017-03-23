@@ -14,31 +14,31 @@ import org.baade.eel.core.Globals;
  * @author <a href="http://eel.baade.org">Baade Eel Project</a>
  *         2017/3/22.
  */
-public class AbstractSocketServer extends AbstractServer {
+public class AbstractSocketServer extends AbstractServer implements ISocketServer {
+
+    protected ChannelInitializer<SocketChannel> channelInitializer;
+
+    @Override
+    public void setChannelInitializer(ChannelInitializer<SocketChannel> channelInitializer) {
+        this.channelInitializer = channelInitializer;
+    }
+
 
     @Override
     public void run() {
-
         String simpleClassName = this.getClass().getSimpleName();
-        if (this.serverHandler != null) {
-            if (this.serverHandler instanceof ChannelHandlerAdapter) {
-                Globals.LOG.info(simpleClassName + " 在端口[{}]上监听, IServerHandler 是[{}].",
-                        this.port, this.serverHandler.getClass());
-                bind((ChannelHandlerAdapter)(this.serverHandler));
-            }else{
-                Globals.LOG.error(simpleClassName + " 启动失败: ServerHandler配置有误：" +
-                        "ServerHandler 应当继承于 io.netty.channel.ChannelHandlerAdapter.");
-                throw new RuntimeException(simpleClassName + " 启动失败: ServerHandler配置有误：" +
-                        "ServerHandler 应当继承于 io.netty.channel.ChannelHandlerAdapter.");
-            }
-        }else{
-            Globals.LOG.error(simpleClassName + " 启动失败: 没有配置 ServerHandler.");
-            throw new RuntimeException(simpleClassName + " 启动失败: 没有配置 ServerHandler.");
+        if (this.channelInitializer != null) {
+            Globals.LOG.info(simpleClassName + " 在端口[{}]上监听, ChannelInitializer 是[{}].",
+                    this.port, this.channelInitializer.getClass());
+            bind();
+        } else {
+            Globals.LOG.error(simpleClassName + " 启动失败: 没有配置 ChannelInitializer.");
+            System.exit(0);
         }
 
     }
 
-    private void bind(final ChannelHandlerAdapter channelHandler){
+    private void bind() {
         String simpleClassName = this.getClass().getSimpleName();
         EventLoopGroup bossGroup = new NioEventLoopGroup(); // (1)
         EventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -46,13 +46,7 @@ public class AbstractSocketServer extends AbstractServer {
             ServerBootstrap b = new ServerBootstrap(); // (2)
             b.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class) // (3)
-                    .childHandler(new ChannelInitializer<SocketChannel>() { // (4)
-                        @Override
-                        public void initChannel(SocketChannel ch) throws Exception {
-//                            ch.pipeline().addLast((ChannelHandlerAdapter)(this.serverHandler));
-                            ch.pipeline().addLast(channelHandler);
-                        }
-                    })
+                    .childHandler(this.channelInitializer)
                     .option(ChannelOption.SO_BACKLOG, 128)          // (5)
                     .childOption(ChannelOption.SO_KEEPALIVE, true); // (6)
 
@@ -63,9 +57,9 @@ public class AbstractSocketServer extends AbstractServer {
             // In this example, this does not happen, but you can do that to gracefully
             // shut down your server.
             f.channel().closeFuture().sync();
-        }catch (Exception e){
+        } catch (Exception e) {
             Globals.LOG.error(simpleClassName + " 启动失败: cause{}.", e);
-            throw new RuntimeException(simpleClassName + " 启动失败: cause{}.", e);
+            System.exit(0);
         } finally {
             workerGroup.shutdownGracefully();
             bossGroup.shutdownGracefully();

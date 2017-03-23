@@ -5,7 +5,7 @@ package org.baade.eel.core;
  * @author <a href="http://eel.baade.org">Baade Eel Project</a>
  *         2017/3/16.
  */
-public abstract class LifecycleAdaptor  implements ILifecycle{
+public abstract class LifecycleAdaptor implements ILifecycle{
 
     private final long createTime;
 

@@ -10,11 +10,9 @@ import org.eclipse.jetty.server.handler.AbstractHandler;
  * @author <a href="http://eel.baade.org">Baade Eel Project</a>
  *         2017/3/16.
  */
-public abstract class AbstractServer extends LifecycleAdaptor implements IServer, Runnable{
+public abstract class AbstractServer extends LifecycleAdaptor implements IServer{
 
     protected int port;
-
-    protected IServerHandler serverHandler;
 
     public AbstractServer() {
         super();
@@ -33,11 +31,6 @@ public abstract class AbstractServer extends LifecycleAdaptor implements IServer
     @Override
     public void setPort(int port) {
         this.port = port;
-    }
-
-    @Override
-    public void setHandler(IServerHandler handler) {
-        this.serverHandler = handler;
     }
 
 

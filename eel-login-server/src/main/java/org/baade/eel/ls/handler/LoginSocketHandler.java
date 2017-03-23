@@ -2,13 +2,12 @@ package org.baade.eel.ls.handler;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import org.baade.eel.core.server.IServerHandler;
 
 /**
  * @author <a href="http://eel.baade.org">Baade Eel Project</a>
  *         2017/3/22.
  */
-public class SocketHandler extends ChannelInboundHandlerAdapter implements IServerHandler {
+public class LoginSocketHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
