@@ -48,6 +48,8 @@
         <jetty.version>9.4.2.v20170220</jetty.version>
         <netty-all.version>4.1.9.Final</netty-all.version>
 
+        <freemarker.version>2.3.25-incubating</freemarker.version>
+
     </properties>
 
     <distributionManagement>
