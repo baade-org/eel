@@ -9,4 +9,5 @@ package org.baade.eel.tools.generator;
 public interface IGenerator {
 
 
+    public void gen();
 }

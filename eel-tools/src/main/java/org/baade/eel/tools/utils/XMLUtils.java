@@ -1,12 +1,11 @@
-package org.baade.eel.core.utils;
+package org.baade.eel.tools.utils;
 
-import java.io.*;
-import java.net.URL;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import java.io.*;
 
 /**
  * XML工具类
@@ -18,7 +17,6 @@ public class XMLUtils {
     /**
      * 将对象转成XML的字符串
      *
-     * @param t 对象T
      * @return 返回对象数据的XML字符串
      */
     public static <T> String obj2XMLStr(T t) {
@@ -78,7 +76,6 @@ public class XMLUtils {
      * @param xmlPath XML的文件路径
      * @return 返回对象T的实例
      */
-    @SuppressWarnings("unchecked")
     public static <T> T xmlFile2Obj(Class<T> clazz, String xmlPath) {
         InputStream inputStream = null;
         try {
