@@ -5,14 +5,12 @@ option java_outer_classname = "AccountProtos";
 
 //登录协议
 message CSLogin {
-   option (id) = 1001;
    required string type = 1;//登录类型
    required string name = 2;//登录名称
    optional string password = 3;//密码（可选）
 }
 //登录返回的结果
 message SCLogin {
-    option (id) = 1002;
    required string token = 1;//Token
    required string ip = 2;//目标IP
    optional string port = 3;//端口

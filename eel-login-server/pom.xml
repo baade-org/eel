@@ -19,5 +19,11 @@
             <version>${project.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.baade</groupId>
+            <artifactId>eel-basic</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
     </dependencies>
 </project>

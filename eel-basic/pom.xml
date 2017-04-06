@@ -12,5 +12,13 @@
 
     <artifactId>eel-basic</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.baade</groupId>
+            <artifactId>eel-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+    </dependencies>
 
 </project>

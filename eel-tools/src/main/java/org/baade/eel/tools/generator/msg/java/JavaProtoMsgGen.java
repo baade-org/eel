@@ -35,6 +35,7 @@ public class JavaProtoMsgGen extends ProtoMsgGenAdapter implements IMessageGen {
                     filter(pf -> pf.getName().endsWith(CommonConst.FileSuffix.PROTO.getName())).
                     forEach(
                             pf -> {
+                                Log.TOOLS.info("处理proto文件:{}", pf.getName());
                                 String runCommond = String.format(Command.Protoc.JAVA.getCommondStr(),
                                         protocAbsPath, protoFileDir, msgJavaOutAbsPath, pf.getAbsolutePath());
                                 Log.TOOLS.debug("Gen JAVA Proto Msg commond:{}", runCommond);
