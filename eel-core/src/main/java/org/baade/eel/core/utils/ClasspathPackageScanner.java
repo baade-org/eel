@@ -1,15 +1,18 @@
 package org.baade.eel.core.utils;
 
+import org.baade.eel.core.message.MessageHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.lang.annotation.Annotation;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 
@@ -39,9 +42,8 @@ public class ClasspathPackageScanner {
      * Actually perform the scanning procedure.
      *
      * @param basePackage
-     * @param nameList A list to contain the result.
+     * @param nameList    A list to contain the result.
      * @return A list of fully qualified names.
-     *
      * @throws IOException
      */
     private static List<String> doScan(String basePackage, List<String> nameList) throws IOException {
@@ -147,11 +149,26 @@ public class ClasspathPackageScanner {
         return name.endsWith(".jar");
     }
 
+    public static Map<Class<? extends Annotation>, List<Class<?>>> scanByAnnoClass(List<? extends Annotation> annoClasses){
+
+
+        return null;
+    }
+
+
     /**
      * For test purpose.
      */
     public static void main(String[] args) throws Exception {
-        getFullyQualifiedClassNameList("org.baade");
+        List<String> list = getFullyQualifiedClassNameList("org.baade");
+        list.stream().forEach(l -> {
+            try {
+                Class<?> clazz = Class.forName(l);
+                System.out.println(clazz + " : " + clazz.isAnnotation() + " : " + clazz.isAnnotationPresent(MessageHandler.class));
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
 
