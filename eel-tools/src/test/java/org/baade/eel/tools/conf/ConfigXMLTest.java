@@ -13,7 +13,6 @@ public class ConfigXMLTest {
     @Test
     public void genXML(){
         Config config = new Config();
-        config.setRootDir("E:/workspace-baade/");
 
         MessageConfig messageConfig = new MessageConfig();
         messageConfig.setMsgFileJavaOutPath("");

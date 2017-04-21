@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <config>
-    <rootDir>E:/workspace-baade/eel/</rootDir>
     <messageConfig>
         <protocFilePath>eel-tools/protoc/protoc-3.2.0-win32/bin/protoc.exe</protocFilePath>
         <protosFileDir>eel-basic/assets/protos</protosFileDir>

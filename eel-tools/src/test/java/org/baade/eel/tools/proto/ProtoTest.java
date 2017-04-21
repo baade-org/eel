@@ -15,13 +15,13 @@ public class ProtoTest {
     @Test
     public void genProtoMsg() {
         Config config = Config.loadDefault();
-        String protocAbsPath = config.getRootDir() + config.getMessageConfig().getProtocFilePath();
+        String protocAbsPath = config.getMessageConfig().getProtocFilePath();
         System.out.println(protocAbsPath);
 
-        String protoFileDir = config.getRootDir() + config.getMessageConfig().getProtosFileDir();
+        String protoFileDir = config.getMessageConfig().getProtosFileDir();
         System.out.println(protoFileDir);
 
-        String msgJavaOutAbsPath = config.getRootDir() + config.getMessageConfig().getMsgFileJavaOutPath();
+        String msgJavaOutAbsPath = config.getMessageConfig().getMsgFileJavaOutPath();
         System.out.println(msgJavaOutAbsPath);
 
 

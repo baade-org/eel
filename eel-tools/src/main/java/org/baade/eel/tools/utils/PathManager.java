@@ -11,13 +11,7 @@ import java.io.File;
 public class PathManager {
 
     public static String getAbsolutePath(String path) {
-        String absPath = null;
         File file = new File(path);
-        if (!file.exists()) {
-
-        } else {
-            absPath = file.getAbsolutePath();
-        }
-        return absPath;
+        return file.getAbsolutePath();
     }
 }

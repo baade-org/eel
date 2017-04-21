@@ -20,9 +20,9 @@ public abstract class ProtoMsgGenAdapter implements IMessageGen {
     @Override
     public boolean check() {
         boolean flag = true;
-        String protocAbsPath = config.getRootDir() + config.getMessageConfig().getProtocFilePath();
-        String protoFileDir = config.getRootDir() + config.getMessageConfig().getProtosFileDir();
-        String msgJavaOutAbsPath = config.getRootDir() + config.getMessageConfig().getMsgFileJavaOutPath();
+        String protocAbsPath = config.getMessageConfig().getProtocFilePath();
+        String protoFileDir = config.getMessageConfig().getProtosFileDir();
+        String msgJavaOutAbsPath = config.getMessageConfig().getMsgFileJavaOutPath();
 
         File file = new File(protocAbsPath);
         if(!file.exists()){

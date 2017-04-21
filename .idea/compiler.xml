@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="eel-basic" />
+        <module name="eel-core" />
+        <module name="eel-login-server" />
+        <module name="eel-tools" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eel-aggregate" target="1.8" />
+      <module name="eel-basic" target="1.8" />
+      <module name="eel-core" target="1.8" />
+      <module name="eel-login-server" target="1.8" />
+      <module name="eel-tools" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,5 +1,6 @@
 package org.baade.eel.tools.conf;
 
+import org.baade.eel.tools.utils.PathManager;
 import org.baade.eel.tools.utils.XMLUtils;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -13,12 +14,10 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlRootElement
 @XmlType(propOrder = {
-        "rootDir",
         "messageConfig",
 })
 public class Config {
 
-    private String rootDir;
 
     private MessageConfig messageConfig;
 
@@ -27,15 +26,11 @@ public class Config {
     }
 
     public static Config load(String xmlFilePath) {
-        return XMLUtils.xmlFile2Obj(Config.class, xmlFilePath);
-    }
-
-    public String getRootDir() {
-        return rootDir;
-    }
-
-    public void setRootDir(String rootDir) {
-        this.rootDir = rootDir;
+        Config config = XMLUtils.xmlFile2Obj(Config.class, xmlFilePath);
+        config.getMessageConfig().setProtocFilePath(PathManager.getAbsolutePath(config.getMessageConfig().getProtocFilePath()));
+        config.getMessageConfig().setMsgFileJavaOutPath(PathManager.getAbsolutePath(config.getMessageConfig().getMsgFileJavaOutPath()));
+        config.getMessageConfig().setProtosFileDir(PathManager.getAbsolutePath(config.getMessageConfig().getProtosFileDir()));
+        return config;
     }
 
     public MessageConfig getMessageConfig() {

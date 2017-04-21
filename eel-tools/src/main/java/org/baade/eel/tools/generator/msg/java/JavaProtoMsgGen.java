@@ -27,9 +27,9 @@ public class JavaProtoMsgGen extends ProtoMsgGenAdapter implements IMessageGen {
     @Override
     public void gen() {
         if (check()) {
-            String protocAbsPath = config.getRootDir() + config.getMessageConfig().getProtocFilePath();
-            String protoFileDir = config.getRootDir() + config.getMessageConfig().getProtosFileDir();
-            String msgJavaOutAbsPath = config.getRootDir() + config.getMessageConfig().getMsgFileJavaOutPath();
+            String protocAbsPath = config.getMessageConfig().getProtocFilePath();
+            String protoFileDir = config.getMessageConfig().getProtosFileDir();
+            String msgJavaOutAbsPath = config.getMessageConfig().getMsgFileJavaOutPath();
             File protoDir = new File(protoFileDir);
             Stream.of(protoDir.listFiles()).
                     filter(pf -> pf.getName().endsWith(CommonConst.FileSuffix.PROTO.getName())).
